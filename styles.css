@@ -1,0 +1,162 @@
+:root {
+    --golden-ratio: 1.618;
+    --base-font-size: 16px;
+    --base-spacing: 16px;
+    --base-line-height: calc(var(--base-font-size) * var(--golden-ratio));
+    --golden-padding: calc(var(--base-spacing) * var(--golden-ratio));
+    --golden-margin: calc(var(--base-spacing) * var(--golden-ratio));
+    --button-height: 40px;
+    --button-padding: calc(10px * var(--golden-ratio));
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Adjust to flex-start to allow content growth */
+    min-height: 100vh;  /* Allow the body to expand beyond 100vh if necessary */
+    padding: var(--golden-padding);
+    margin: 0;
+    overflow-x: hidden;  /* Prevent any horizontal overflow */
+}
+
+.container {
+    max-width: calc(960px * var(--golden-ratio));  /* Use a standard max-width */
+    padding: var(--golden-padding);
+    text-align: center;
+    margin: var(--golden-margin) auto;
+    width: 100%;  /* Ensure container uses full available width */
+}
+
+h1, h2 {
+    font-size: calc(var(--base-font-size) * var(--golden-ratio) * 1.5);  /* Standard heading size */
+    margin-bottom: var(--golden-margin);
+}
+
+.color-picker-section, .palette-section {
+    margin-bottom: var(--golden-margin);
+}
+
+.color-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--base-spacing) * var(--golden-ratio));
+    margin-bottom: var(--golden-margin);
+}
+
+#color-picker-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    background-color: #ff0000;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+#color-picker-btn:hover {
+    background-color: #e60000;
+}
+
+.color-values {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--base-spacing) / 2);
+}
+
+#hexInput {
+    width: calc(120px * var(--golden-ratio));
+    padding: calc(6px * var(--golden-ratio));
+    font-size: 1em;
+    margin-bottom: var(--golden-margin);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#addColorBtn, #exportBtn {
+    height: var(--button-height);
+    padding: 0 var(--button-padding);
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+    margin-top: calc(var(--base-spacing) / 2);
+    cursor: pointer;
+}
+
+#addColorBtn:hover, #exportBtn:hover {
+    background-color: #555;
+}
+
+.image-upload {
+    margin-bottom: var(--golden-margin);
+}
+
+#imageCanvas {
+    display: block;
+    margin: calc(var(--base-spacing) * var(--golden-ratio)) auto;
+    border: 1px solid #ccc;
+    max-width: 100%;  /* Ensure the image adjusts to the container width */
+    height: auto;  /* Maintain the aspect ratio of the uploaded image */
+}
+
+#palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--base-spacing) * var(--golden-ratio));
+    justify-content: center;
+    margin-top: var(--golden-margin);
+}
+
+.color-swatch {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-swatch span {
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    font-size: 0.8em;
+    transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.hidden {
+    display: none;
+}
